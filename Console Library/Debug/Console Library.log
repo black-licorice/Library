@@ -1,4 +1,3 @@
 ﻿  Console Library.cpp
-D:\projects\c++\Console Library\Console Library\Console Library.cpp(282,18): warning C4129: 'L': unrecognized character escape sequence
 D:\projects\c++\Console Library\Console Library\Console Library.cpp(404,34): warning C4018: '<': signed/unsigned mismatch
   Console Library.vcxproj -> D:\projects\c++\Console Library\Debug\Console Library.exe

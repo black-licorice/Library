@@ -33,7 +33,7 @@ int main()
     loadBooks();
     while (true)
     {
-        int loginSuccess = Login();
+        int loginSuccess = Login(); // On first use the admin account to use to sign in is Admin01 and its password is 1234
         if (loginSuccess == 0)
         {
             break;
@@ -301,7 +301,7 @@ void listUsers()
             role = "Member";
             break;
         }
-        std::cout << user.Id << "\t" << user.FirstName << "\t" << user.LastName << "\t" << user.Username << "\t" << role << std::endl;
+        std::cout << user.Id << "\t" << user.FirstName << "\t\t" << user.LastName << "\t\t" << user.Username << "\t\t" << role << std::endl;
     }
     std::cout << std::endl;
 }
