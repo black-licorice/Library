@@ -1,6 +1,5 @@
 #pragma once
 #include "Book.h"
-#include "CheckInCase.h"
 #include <vector>
 class Inventory
 {
@@ -13,6 +12,6 @@ public:
 	void addBook(Book book);
 	void removeBookByTitle(std::string title);
 	Book* findBookByTitle(std::string title);
-	CheckInOutResult checkInOutByTitle(std::string title, std::string inOut);
+	int checkInOutByTitle(std::string title, std::string inOut);
 	void saveBooks();
 };

@@ -1,3 +1,6 @@
-﻿  Console Library.cpp
-D:\projects\c++\Console Library\Console Library\Console Library.cpp(404,34): warning C4018: '<': signed/unsigned mismatch
+﻿  Inventory.cpp
+D:\projects\c++\Console Library\Console Library\Inventory.cpp(10,20): warning C4018: '<': signed/unsigned mismatch
+D:\projects\c++\Console Library\Console Library\Inventory.cpp(72,20): warning C4018: '<': signed/unsigned mismatch
+D:\projects\c++\Console Library\Console Library\Inventory.cpp(17): warning C4715: 'Inventory::m_getBookById': not all control paths return a value
+D:\projects\c++\Console Library\Console Library\Inventory.cpp(66): warning C4172: returning address of local variable or temporary: exit
   Console Library.vcxproj -> D:\projects\c++\Console Library\Debug\Console Library.exe

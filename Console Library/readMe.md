@@ -4,3 +4,4 @@
 
 
 ###The possiblity to change passwords is ***coming soon*** 
+###Remove Books functionality ***coming soon***

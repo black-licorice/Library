@@ -56,10 +56,15 @@ Book* Inventory::findBookByTitle(std::string title)
 	if (foundBooks.empty())
 	{
 		std::cout << title << " was not found" << std::endl;
-		std::cout << "Enter another title: ";
+		std::cout << "Enter another title or enter 0 to exit \n";
 		std::string inputStr;
 		std::cin >> inputStr;
 		std::cin.ignore();
+		if (inputStr == "0")
+		{
+			Book exit;
+			return &exit; // return empty book to take advantage of its undeclared ID being negative
+		}
 		findBookByTitle(inputStr);
 	}
 	std::cout << "Results: " << std::endl;
@@ -75,7 +80,7 @@ Book* Inventory::findBookByTitle(std::string title)
 	return Inventory::m_getBookById(input, title);
 
 }
-CheckInOutResult Inventory::checkInOutByTitle(std::string title, std::string inOut) 
+int Inventory::checkInOutByTitle(std::string title, std::string inOut) 
 {
 	bool outCondition;
 	if (inOut == "out")
@@ -85,18 +90,20 @@ CheckInOutResult Inventory::checkInOutByTitle(std::string title, std::string inO
 	else
 	{
 		std::cout << "Invalid usage of 'checkinOut' please pass 'in' or 'out' in as the second parameter" << std::endl;
-		return CheckInOutResult::SyntaxErr;
+		return 2;
 	}
 	Book* book = findBookByTitle(title);
+	if (book->getId() < 0) // undeclared IDs are always negative
+		return -2;
 	bool outIncondition = (outCondition ? book->getCheckedOutStatus() : !book->getCheckedOutStatus()); // true if checking out while book is missing : true if returning book that has not been checked out 
 	if (outIncondition)
 	{
 		std::cout << book->getTitle() << (outCondition ? " is already checked out" : " was never checked out") << std::endl;
-		return CheckInOutResult::Failure;
+		return 1;
 	}
 	outCondition ? book->checkINCheckOut(true) : book->checkINCheckOut(false);
 	std::cout << book->getTitle() << (outCondition ? " successfully checked out" : " successfully returned") << std::endl;
-	return CheckInOutResult::Success;
+	return 0;
 }
 void Inventory::saveBooks()
 {
